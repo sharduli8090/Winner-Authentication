@@ -1,2 +1,2 @@
 # Winner-Authentication
-## Copuon Code authentication app
+## Coupon code authentication app
