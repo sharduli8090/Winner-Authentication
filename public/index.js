@@ -16,12 +16,12 @@
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
-        apiKey: "AIzaSyCStgNL0zhOcQDudbYGUiysfTZZX1EfHGo",
-        authDomain: "winnerauthenticationgfg.firebaseapp.com",
-        projectId: "winnerauthenticationgfg",
-        storageBucket: "winnerauthenticationgfg.appspot.com",
-        messagingSenderId: "1099077842043",
-        appId: "1:1099077842043:web:07e97daa9abe1961395ede",
+        apiKey: "AIzaSyCPKkQkvRP6-edPQFXkP4C2-q8c_Wyjq4U",
+        authDomain: "winnerauth.firebaseapp.com",
+        projectId: "winnerauth",
+        storageBucket: "winnerauth.appspot.com",
+        messagingSenderId: "156244645726",
+        appId: "1:156244645726:web:ee603f4c2941c205a421cf"
       };
 
       // Initialize Firebase
