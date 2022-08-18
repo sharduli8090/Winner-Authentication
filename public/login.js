@@ -143,11 +143,18 @@ function addElementToTable(name, id, coupon, status) {
   var td2 = document.createElement("td");
   var td3 = document.createElement("td");
   var td4 = document.createElement("td");
+  var td5 = document.createElement("td");
 
   td1.innerHTML = id;
   td2.innerHTML = name;
   td3.innerHTML = coupon;
   td4.innerHTML = status;
+
+  let inputBox = document.createElement("input");
+  inputBox.setAttribute("type", "checkbox");
+  inputBox.setAttribute("value", id);
+  inputBox.setAttribute("class", "checkBox");
+  td5.appendChild(inputBox);
 
   if (status == false) {
     trow.style.backgroundColor = "rgba(171, 27, 27, 0.2)";
@@ -157,6 +164,7 @@ function addElementToTable(name, id, coupon, status) {
   trow.appendChild(td2);
   trow.appendChild(td3);
   trow.appendChild(td4);
+  trow.appendChild(td5);
 
   tbody.appendChild(trow);
 }
@@ -169,25 +177,29 @@ function addAllDataToTable(docsList) {
   });
 }
 
+//Deleting user
 async function deleteUser() {
-  const id = document.getElementById("id").value;
-  var colRef = doc(db, "coupons", id);
-  const docSnap = await getDoc(colRef);
+  const idList = document.getElementsByClassName("checkBox");
 
-  //Check if the user exist in the data base
+  for (let i = 0; i < idList.length; i++) {
+    //Checking if the check box is checked
+    var status = idList[i].checked;
+    //Getting the id value of the checkbox
+    var id = idList[i].value;
 
-  if (docSnap.exists()) {
-    //user exists
-    //Deleting the user
-    await deleteDoc(doc(db, "coupons", id))
-    alert("User deleted successfully!");
-    location.reload();
-  } else {
-    alert("User doesn't exist!");
+    if (status == true) {
+      await deleteDoc(doc(db, "coupons", id));
+    }
   }
+  alert("User deleted successfully!");
+  location.reload();
 }
+
+//Update user profile
+async function updateUser() {}
 
 document.getElementById("login").addEventListener("click", loginUser);
 document.getElementById("logout").addEventListener("click", logoutUser);
 document.getElementById("add").addEventListener("click", addUser);
 document.getElementById("delete").addEventListener("click", deleteUser);
+document.getElementById("update").addEventListener("click", updateUser);
