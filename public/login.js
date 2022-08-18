@@ -196,7 +196,32 @@ async function deleteUser() {
 }
 
 //Update user profile
-async function updateUser() {}
+async function updateUser() {
+  const idList = document.getElementsByClassName("checkBox");
+
+  for (let i = 0; i < idList.length; i++) {
+    //Checking if the check box is checked
+    let boxStatus = idList[i].checked;
+    //Getting the id value of the checkbox
+    var id = idList[i].value;
+    var colRef = doc(db, "coupons", id);
+    const docSnap = await getDoc(colRef);
+
+    if (boxStatus == true) {
+      if (docSnap.data().status == true) {
+        await updateDoc(colRef, {
+          status: false,
+        });
+      } else {
+        await updateDoc(colRef, {
+          status: true,
+        });
+      }
+    }
+  }
+  alert("Coupon Updated successfully!");
+  location.reload();
+}
 
 document.getElementById("login").addEventListener("click", loginUser);
 document.getElementById("logout").addEventListener("click", logoutUser);
