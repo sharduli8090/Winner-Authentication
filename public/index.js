@@ -30,7 +30,7 @@
 
       async function checkCode() {
         const id = document.getElementById("id").value;
-        const code = document.getElementById("code").value;
+        const code = document.getElementById("code").value.toUpperCase();
 
         var colRef = doc(db, "coupons", id);
         const docSnap = await getDoc(colRef);
