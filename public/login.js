@@ -40,7 +40,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     document.getElementById("userdiv").style.display = "flex";
-    document.getElementById("main").style.display = "none";
+    document.getElementById("cont").style.display = "none";
     document.getElementById("tableCoupon").style.display = "flex";
 
     //Check the logged in user
@@ -49,12 +49,19 @@ onAuthStateChanged(auth, (user) => {
     console.log(user);
     if (user != null) {
       var email_id = user.email;
-      document.getElementById("useremail").innerHTML = "Welcome : " + email_id;
+      var div = document.createElement('div');
+      div.setAttribute(
+        'id','welcomeText'
+      )
+      div.innerHTML = "Welcome : " + email_id;
+      document.getElementById("useremail").innerHTML="";
+      document.getElementById("useremail").appendChild(div);
+      // document.getElementById("useremail").innerHTML = "Welcome : " + email_id;
     }
   } else {
     // User is signed out
     document.getElementById("userdiv").style.display = "none";
-    document.getElementById("main").style.display = "flex";
+    document.getElementById("cont").style.display = "flex";
   }
 });
 

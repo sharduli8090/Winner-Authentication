@@ -63,21 +63,24 @@
 
 
       function rejected(){
-        document.getElementById('main').innerHTML="";
+        document.getElementById('cont').innerHTML="";
         var img = document.createElement("img");
         img.setAttribute(
             'src',
-            'https://img.freepik.com/free-vector/red-prohibited-sign-no-icon-warning-stop-symbol-safety-danger-isolated-vector-illustration_56104-912.jpg?w=740&t=st=1659899221~exp=1659899821~hmac=7d28d70ab6d39c360a3c913858f89630f3c8b619bb649c8d960fead8a961d2c6',
+            'w.jpg',
           );
         img.setAttribute('alt', 'rejected');
+        img.setAttribute('id','rejectAcept');
 
-        var element = document.getElementById("main");
+        var element = document.getElementById("cont");
         element.appendChild(img);
         var div = document.createElement("div");
-        div.setAttribute(
-            'class',
-            'message'
-          );
+        // div.setAttribux
+          div.setAttribute(
+              'class',
+              'text-center display-6 texter'
+            );
+            div.setAttribute('style','font-weight:bold')
         div.innerHTML = "Wrong Coupon Code Entered!"
         element.appendChild(div);
         var btn = document.createElement('button');
@@ -87,7 +90,7 @@
         );
         btn.setAttribute(
             'class',
-            'btns'
+            'btn'
         );
         btn.innerHTML = "Try Again";
         btn.setAttribute(
@@ -98,7 +101,7 @@
       }
 
       function accepted(){
-        document.getElementById('main').innerHTML="";
+        document.getElementById('cont').innerHTML="";
         var img = document.createElement("img");
         img.setAttribute(
             'src',
@@ -106,13 +109,14 @@
           );
         img.setAttribute('alt', 'accepted');
 
-        var element = document.getElementById("main");
+        var element = document.getElementById("cont");
         element.appendChild(img);
         var div1 = document.createElement("div");
         div1.setAttribute(
-            'class',
-            'message'
-          );
+          'class',
+          'text-center display-6 texter'
+        );
+        div1.setAttribute('style','font-weight:bold');
         div1.setAttribute(
             'id',
             'accepted'
@@ -126,7 +130,7 @@
         );
         btn.setAttribute(
             'class',
-            'btns'
+            'btn'
         );
         btn.innerHTML = "Enter another code";
         btn.setAttribute(
