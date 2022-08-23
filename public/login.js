@@ -105,7 +105,7 @@ const db = getFirestore();
 //adding userdata in firestore database
 async function addUser() {
   const id = document.getElementById("id").value;
-  const code = document.getElementById("code").value.toUpperCase;
+  const code = document.getElementById("code").value.toUpperCase();
   const name = document.getElementById("name").value;
 
   var colRef = doc(db, "coupons", id);
